@@ -6,10 +6,12 @@ import { provideClientHydration } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 
 
+
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), importProvidersFrom(HttpClientModule), importProvidersFrom(BrowserAnimationsModule)]
+  providers: [provideRouter(routes), provideClientHydration(), importProvidersFrom(HttpClientModule), importProvidersFrom(BrowserAnimationsModule), importProvidersFrom(BsDropdownModule)]
 };
