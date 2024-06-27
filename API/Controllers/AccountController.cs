@@ -1,7 +1,7 @@
 using API.Data;
 using API.DTOs;
 using API.Entities;
-using API.Iterfaces;
+using API.Interfaces;
 using API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,24 +27,25 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
             if(await UserExists(registerDto.Username)) return BadRequest("Username is taken");
+            
+            return Ok();
+            // using var hmac = new HMACSHA512();
 
-            using var hmac = new HMACSHA512();
+            // var user = new AppUser
+            // {
+            //     UserName = registerDto.Username.ToLower(),
+            //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+            //     PasswordSalt = hmac.Key
+            // };
 
-            var user = new AppUser
-            {
-                UserName = registerDto.Username.ToLower(),
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hmac.Key
-            };
+            // _context.Users.Add(user);
+            // await _context.SaveChangesAsync();
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return new UserDto
-            {
-                Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
-            };
+            // return new UserDto
+            // {
+            //     Username = user.UserName,
+            //     Token = _tokenService.CreateToken(user)
+            // };
 
         }
 
