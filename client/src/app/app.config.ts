@@ -10,6 +10,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import {BrowserAnimationsModule, provideAnimations} from '@angular/platform-browser/animations'
 import { provideToastr } from 'ngx-toastr';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { jwtInterceptor } from './_interceptors/jwt.interceptor';
 
  // required animations providers
      // Toastr providers
@@ -27,6 +28,7 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
     positionClass: 'toast-bottom-right'
   }),
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true},
 ]
 };
