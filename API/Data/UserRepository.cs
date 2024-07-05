@@ -51,10 +51,15 @@ public class UserRepository(DataContext context, IMapper mapper) : IUserReposito
         return await context.SaveChangesAsync() > 0;
     }
 
-    public Task<bool> SaveAllASync()
-    {
-        throw new NotImplementedException();
-    }
+    // public Task<bool> SaveAllAsync()
+    // {
+    //     throw new NotImplementedException();
+    // }
+
+    // public Task<bool> SaveAllASync()
+    // {
+    //     throw new NotImplementedException();
+    // }
 
     public void Update(AppUser user)
     {
