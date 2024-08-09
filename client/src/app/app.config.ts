@@ -35,6 +35,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(NgxSpinnerModule),
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true},
-    provideHttpClient(withInterceptors([loadingInterceptor]))
+    provideHttpClient((withInterceptors([loadingInterceptor])))
 ]
 };
