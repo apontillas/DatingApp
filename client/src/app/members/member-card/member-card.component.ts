@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { Member } from '../../_modules/member';
+import { Member } from '../../_models/member';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 

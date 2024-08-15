@@ -2,11 +2,9 @@ using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Interfaces;
-using API.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -46,7 +44,8 @@ namespace API.Controllers
             {
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user),
-                KnownAs = user.KnownAs
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
 
         }
@@ -77,8 +76,8 @@ namespace API.Controllers
                 // Token = "jhgvgfcfxddfxbgccfcfxd" ///Token Service not working
                 Token = _tokenService.CreateToken(user),
                 PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
-                KnownAs = user.KnownAs
-                             
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
         }
 

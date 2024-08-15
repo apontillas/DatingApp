@@ -14,6 +14,7 @@ import { jwtInterceptor } from './_interceptors/jwt.interceptor';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { loadingInterceptor } from './_interceptors/loading.interceptor';
+import { TimeagoModule } from 'ngx-timeago';
 
  // required animations providers
      // Toastr providers
@@ -32,7 +33,7 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
     positionClass: 'toast-bottom-right'
   }),
-    importProvidersFrom(NgxSpinnerModule),
+    importProvidersFrom(NgxSpinnerModule, TimeagoModule.forRoot()),
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true},
     provideHttpClient((withInterceptors([loadingInterceptor])))
