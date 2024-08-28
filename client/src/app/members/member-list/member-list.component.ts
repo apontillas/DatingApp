@@ -6,10 +6,7 @@ import { MemberCardComponent } from '../member-card/member-card.component';
 import {  Pagination } from '../../_models/pagination';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
-import { AccountService } from '../../_services/account.service';
 import { UserParams } from '../../_models/userParams';
-import { User } from '../../_models/user';
-import { take } from 'rxjs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 
